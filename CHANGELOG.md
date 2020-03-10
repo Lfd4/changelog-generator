@@ -1,6 +1,23 @@
 # changelog-generator Changelog
 
 
+## v0.1.7 (2020-3-9)
+
+### docs
+* **update:** changelog (4f93632aef849536eaac5b72b48b37351e6d52a7)
+
+### fix
+* error message when CHANGELOG.md was not found (e87ce38573bded0e6e15954a0ad3c58de2601a19)
+* path joining (c8b74da3bbb21f0c1b0edc5b83a2441ccf647664)
+
+### refactor
+* make 'types' and 'bodytags' to global variables (789c5ee3148acb86759d75f46674c75e61a99884)
+* reworked get_commits function (03a8b105ee128b6a957ef70aacd93af21ee21505)
+
+### feat
+* add default 'types' chore, test (aa2bec5ecdba1aa0ff86c51e9f421a2f32d2ab7f)
+
+
 ## v0.1.6 (2020-3-9)
 
 
@@ -98,4 +115,4 @@
 * new structure (cdcdc169f926fd8a2490ba2c8f0380453bda8fa1)
 
 
-::> 81 commits in 9 version tags, last considered commit: 2bf075ac31dcc8f699459defafadf5074753f670
+::> 83 commits in 10 version tags, last considered commit: e4879d0979c896431f0089edb5c4b54d0b0ecac2
