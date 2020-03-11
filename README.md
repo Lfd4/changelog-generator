@@ -20,7 +20,7 @@ Markdown is used for formating.
 ## Options
 
 Option | Format | Description | Default
---- | --- | ---
+--- | --- | --- | ---
 path | TEXT | path to root of git repo | .
 --types | TEXT comma seperated list | commit types to show in changelog | feat,fix,chore,docs,refactor,test
 --bodytags | TEXT comma seperated list | body tags that schould be shown in changelog | BREAKING CHANGE,MAJOR
