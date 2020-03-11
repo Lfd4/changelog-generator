@@ -19,6 +19,6 @@ Markdown is used for formating.
 
 ## Options
 
-| path          | TEXT                      | path to root of git repo                      |
-| --types       | TEXT comma seperated list | commit types to show in changelog             |
-| --bodytags    | TEXT comma seperated list | body tags that schould be shown in changelog  |
+path          | TEXT                      | path to root of git repo
+--types       | TEXT comma seperated list | commit types to show in changelog
+--bodytags    | TEXT comma seperated list | body tags that schould be shown in changelog
