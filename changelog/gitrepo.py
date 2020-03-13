@@ -18,7 +18,7 @@ class Repo():
         # root = self.repo.git.rev_parse("--show-toplevel")
 
         self.origin = self.repo.remotes.origin.url
-        self.url = self.origin.replace('git@', '').replace('.git', '').replace(':', '/')
+        self.url = 'https://' + self.origin.replace('git@', '').replace('.git', '').replace(':', '/')
         self.commit_url = self.url + '/commit/'
         self.compare_url = self.url + '/compare/'
         print('url: ' + self.url)
