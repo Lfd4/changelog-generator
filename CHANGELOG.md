@@ -1,6 +1,21 @@
 # changelog-generator Changelog
 
 
+## [v0.2.0](https://github.com/Lfd4/changelog-generator/compare/v0.1.7...v0.2.0) (2020-3-13)
+
+### docs
+* **update:** changelog ([4e454f5](https://github.com/Lfd4/changelog-generator/commit/4e454f5f84cdbbd2fab297488ff9ef561e539e73))
+* finalize README ([f8a7a3b](https://github.com/Lfd4/changelog-generator/commit/f8a7a3b2c96721b80d224c96cf228811855b2ae6))
+* add instalation section ([28718f4](https://github.com/Lfd4/changelog-generator/commit/28718f463ec5e75f57d5c8d7db9f961fb32e2549))
+
+### feat
+* commits are linked ([6010126](https://github.com/Lfd4/changelog-generator/commit/601012698a337150507b042f8d726288bf01291b))
+* relices have compare links between them ([769ba2b](https://github.com/Lfd4/changelog-generator/commit/769ba2ba25abf3f7b611847a6555b110fe87cf54))
+
+### fix
+* url to commit ([d943c05](https://github.com/Lfd4/changelog-generator/commit/d943c050155654f8dc481e9dbe3ebdce6e1a8ba3))
+
+
 ## [v0.1.7](https://github.com/Lfd4/changelog-generator/compare/v0.1.6...v0.1.7) (2020-3-9)
 
 ### docs
@@ -115,4 +130,4 @@
 * new structure ([cdcdc16](https://github.com/Lfd4/changelog-generator/commit/cdcdc169f926fd8a2490ba2c8f0380453bda8fa1))
 
 
-::> 102 commits in 10 version tags, last considered commit: e4879d0979c896431f0089edb5c4b54d0b0ecac2
+::> 104 commits in 11 version tags, last considered commit: b4a2e6e038d43953c71dd48ab167845adcb27336
