@@ -124,7 +124,7 @@ class Repo():
 
         text = header.generate_header(self.name)
 
-        releaces, versions, dates, new_footer = self.get_changelog(types)
+        releaces, versions, new_footer = self.get_changelog(types)
 
         if len(releaces) == 0:
             print("No version structure available in this repo")
@@ -133,7 +133,7 @@ class Repo():
         # Render and append all releases to the changelog.
 
         for index, releace in enumerate(releaces):
-            text += generate.changelog_entry(releace, version=versions[index], date=dates[index], bodytags=bodytags)
+            text += generate.changelog_entry(releace, version=versions[index], bodytags=bodytags)
 
         text += new_footer
 
@@ -142,7 +142,7 @@ class Repo():
 
     def add_changelog(self, old_text, types, bodytags):
 
-        releaces, versions, dates, new_footer = self.get_changelog(types)
+        releaces, versions, new_footer = self.get_changelog(types)
 
         if len(releaces) == 0:
             print("No version structure available in this repo")
@@ -164,7 +164,7 @@ class Repo():
             # Render and append all new releases to the changelog.
 
             for index, releace in enumerate(releaces[:-old_versions]):
-                text += generate.changelog_entry(releace, version=versions[index], date=dates[index], bodytags=bodytags)
+                text += generate.changelog_entry(releace, version=versions[index], bodytags=bodytags)
 
             text += '\n'.join(old_changelog)
 
@@ -191,7 +191,6 @@ class Repo():
         releace = []
         releaces = []
         versions = []
-        dates = []
         
         for tag in tags:
             for commit in commits:
@@ -199,16 +198,18 @@ class Repo():
                 releace.append(commit)
                 
                 if commit['binsha'] == tag['commit']:
-                    print(f"tag: {tag['name']} --> commits: {len(releace)}")
+                    print(f"  tag: {tag['name']} --> commits: {len(releace)}")
 
                     releaces.append(releace)
-                    versions.append(tag['name'])
-                    dates.append(tag['date'])
+                    versions.append(tag)
                     releace = []
                     break
 
+        for commit in commits:
+            releace.append(commit)
+        print(f"  untagged --> commits: {len(releace)}")
+
         releaces.reverse()
         versions.reverse()
-        dates.reverse()
         
-        return releaces, versions, dates, new_footer
+        return releaces, versions, new_footer

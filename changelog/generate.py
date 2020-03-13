@@ -1,6 +1,10 @@
-def changelog_entry(releace, version, date, bodytags):
+def changelog_entry(releace, version, bodytags):
 
-    text = f"## { version } ({ date })\n\n"
+    name = version['name']
+    if version['compare_link']:
+        name = f"[{ name }]({ version['compare_link'] })"
+
+    text = f"## { name } ({ version['date'] })\n\n"
     text += changelog_entry_body(releace, bodytags)
     text += '\n'
     return text
