@@ -15,10 +15,18 @@ class Repo():
     def __init__(self, repo_path):
         self.repo = git.Repo(repo_path)
 
-        root = self.repo.git.rev_parse("--show-toplevel")
-        self.name = root
+        # root = self.repo.git.rev_parse("--show-toplevel")
+
+        self.origin = self.repo.remotes.origin.url
+        self.url = self.origin.replace('git@', '').replace('.git', '').replace(':', '/')
+        self.commit_url = self.url + '/commit/'
+        self.compare_url = self.url + '/compare/'
+        print('url: ' + self.url)
+
+        self.name = self.url
         while '/' in self.name:
             self.name = self.name[self.name.index('/') + 1:]
+        print('name: ' + self.name)
 
 
     def get_commits(self, types):
@@ -77,6 +85,8 @@ class Repo():
 
         commit_dict['binsha'] = codecs.encode(commit.binsha, 'hex').decode('utf-8')
 
+        commit_dict['link'] = self.commit_url + commit_dict['binsha']
+
         return commit_dict
 
 
@@ -99,6 +109,11 @@ class Repo():
             tag_dict['commit'] = codecs.encode(commit.binsha, 'hex').decode('utf-8')
             date = time.gmtime(commit.committed_date)
             tag_dict['date'] = f'{date.tm_year}-{date.tm_mon}-{date.tm_mday}'
+
+            if len(tags_list):
+                tag_dict['compare_link'] = self.compare_url + tags_list[-1]['name'] + '...' + tag_dict['name']
+            else:
+                tag_dict['compare_link'] = None
 
             tags_list.append(tag_dict)
 

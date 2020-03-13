@@ -21,7 +21,7 @@ def changelog_entry_body(releace, bodytags):
 
             text += changelog_block(
                 commit_type, 
-                [f"{ commit['description'] } ({ commit['binsha'] })" for commit in commits] # body
+                [f"{ commit['description'] } ([{ commit['binsha'][:7] }]({ commit['link'] }))" for commit in commits] # body
             )
             text += '\n'
 
