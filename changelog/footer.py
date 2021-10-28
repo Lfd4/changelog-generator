@@ -1,9 +1,8 @@
 def verify_footer(old_changelog, releaces):
     old_footer = None
+
     for line in old_changelog:
-
         # Search for footer.
-
         if line.startswith('::>'):
             old_footer = line.split(' ')
             old_changelog.remove(line)

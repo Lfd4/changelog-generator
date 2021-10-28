@@ -1,5 +1,4 @@
 def changelog_entry(releace, version, bodytags):
-
     name = version['name']
     if version['compare_link']:
         name = f"[{ name }]({ version['compare_link'] })"
@@ -9,9 +8,7 @@ def changelog_entry(releace, version, bodytags):
     text += '\n'
     return text
 
-
 def changelog_entry_body(releace, bodytags):
-
     text = ''
     commit_dict = {}
     for commit in releace:
@@ -37,9 +34,7 @@ def changelog_entry_body(releace, bodytags):
 
     return text
 
-
 def changelog_block(title, items):
-
     text = ''
     if title:
         text += f"### { title }\n"
@@ -49,9 +44,7 @@ def changelog_block(title, items):
         text += f"* { item }\n"
     return text
 
-
 def get_relevant_texts(commits, bodytags):
-
     texts = []
     for commit in commits:
         if 'body' in commit.keys():

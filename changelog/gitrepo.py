@@ -30,23 +30,17 @@ class Repo():
             self.name = self.name[self.name.index('/') + 1:]
         print('name: ' + self.name)
 
-
     def get_commits(self, types):
-
         commits = list(self.repo.iter_commits(self.branch))
-
         commits_list = []
         for commit in commits:
             commits_list.append(self.commit_dict(commit, types))
-        
         return commits_list
 
-
     def commit_dict(self, commit, types):
-        
         message = commit.message
-
         message = message.split('\n\n')
+
         for index, section in enumerate(message):
             if section.endswith('\n'):
                 section = section [:-1]
@@ -55,7 +49,6 @@ class Repo():
             message[index] = section.replace('\n', ' ')
 
         commit_dict = {}
-
         commit_dict['message'] = message[0]
 
         try:
@@ -86,25 +79,19 @@ class Repo():
             commit_dict['footer'] = message[2]
 
         commit_dict['binsha'] = codecs.encode(commit.binsha, 'hex').decode('utf-8')
-
         commit_dict['link'] = self.commit_url + commit_dict['binsha']
 
         return commit_dict
 
-
     def get_tags(self):
-        
         tags = self.repo.tags
-
         tags_list = []
 
         for tag in tags:
-
             tag_dict = {}
-
             tag_dict['name'] = tag.name
-
             commit = tag.object
+
             while commit.type != 'commit':
                 commit = commit.object
             
@@ -116,16 +103,12 @@ class Repo():
                 tag_dict['compare_link'] = self.compare_url + tags_list[-1]['name'] + '...' + tag_dict['name']
             else:
                 tag_dict['compare_link'] = None
-
             tags_list.append(tag_dict)
 
         return tags_list
 
-
     def generate_changelog(self, types, bodytags):
-
         text = header.generate_header(self.name)
-
         releaces, versions, new_footer = self.get_changelog(types)
 
         if len(releaces) == 0:
@@ -138,12 +121,9 @@ class Repo():
             text += generate.changelog_entry(releace, version=versions[index], bodytags=bodytags)
 
         text += new_footer
-
         return text
 
-
     def add_changelog(self, old_text, types, bodytags):
-
         releaces, versions, new_footer = self.get_changelog(types)
 
         if len(releaces) == 0:
@@ -161,22 +141,16 @@ class Repo():
         # The Footer Line gets removed
 
         old_versions = footer.verify_footer(old_changelog, releaces)
+
         if (old_versions):
-
             # Render and append all new releases to the changelog.
-
             for index, releace in enumerate(releaces[:-old_versions]):
                 text += generate.changelog_entry(releace, version=versions[index], bodytags=bodytags)
-
             text += '\n'.join(old_changelog)
-
             text += new_footer
-
             return text
-
         else:
             return None
-
 
     def get_changelog(self, types):
         tags = self.get_tags()
@@ -189,16 +163,13 @@ class Repo():
 
         commits.reverse()
         commits = pop_list(commits)
-
         releace = []
         releaces = []
         versions = []
         
         for tag in tags:
             for commit in commits:
-
                 releace.append(commit)
-                
                 if commit['binsha'] == tag['commit']:
                     print(f"  tag: {tag['name']} --> commits: {len(releace)}")
 
@@ -209,9 +180,8 @@ class Repo():
 
         for commit in commits:
             releace.append(commit)
-        print(f"  untagged --> commits: {len(releace)}")
 
+        print(f"  untagged --> commits: {len(releace)}")
         releaces.reverse()
         versions.reverse()
-        
         return releaces, versions, new_footer
