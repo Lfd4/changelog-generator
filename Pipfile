@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+certifi = "==2019.11.28"
+chardet = "==3.0.4"
+click = "==7.0"
+gitdb2 = "==2.0.6"
+idna = "==2.8"
+requests = "==2.22.0"
+smmap2 = "==2.0.5"
+urllib3 = "==1.25.7"
+GitPython = "==3.1.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
