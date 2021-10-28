@@ -1,5 +1,38 @@
 # changelog-generator Changelog
 
+## [0.3.1](https://github.com/Lfd4/changelog-generator/compare/0.3.0...0.3.1) (2021-10-28)
+
+### chore
+
+* **deps:** bump urllib3 from 1.25.7 to 1.26.5 ([37d3264](https://github.com/Lfd4/changelog-generator/commit/37d32640113693df6ee6f39af1bd31d79cf4a618))
+
+### docs
+
+* reformat README.md ([97b9dba](https://github.com/Lfd4/changelog-generator/commit/97b9dba4fe809d2d84d42ea0426f39e1eeb2a960))
+
+### fix
+
+* **tags:** sort tags before generating the changelog ([af47609](https://github.com/Lfd4/changelog-generator/commit/af476092541e6e02f8ad1f94f93028a215f7fc25))
+
+## [0.3.0](https://github.com/Lfd4/changelog-generator/compare/v0.2.0...0.3.0) (2021-10-28)
+
+### docs
+
+* **update:** changelog ([3e93cff](https://github.com/Lfd4/changelog-generator/commit/3e93cff117151fd202aed53c17463456b62dc5af))
+
+### chore
+
+* **deps:** bump urllib3 from 1.25.7 to 1.26.5 ([6b12a67](https://github.com/Lfd4/changelog-generator/commit/6b12a6787e14af860e998b5cddd73784b22e4efb))
+* migrate to pipenv ([859bb69](https://github.com/Lfd4/changelog-generator/commit/859bb6951cdb22cdf0b015db3bb3441f74092de0))
+
+### feat
+
+* **command:** add option to customize branch ([60b8eb7](https://github.com/Lfd4/changelog-generator/commit/60b8eb79fe8b659d7011a711273e3a18e8b9f3cc))
+
+### refactor
+
+* refactor ([af43b82](https://github.com/Lfd4/changelog-generator/commit/af43b827a2f67a9dd7c08729da263df63a975cd7))
+
 ## [v0.2.0](https://github.com/Lfd4/changelog-generator/compare/v0.1.7...v0.2.0) (2020-3-13)
 
 ### docs
@@ -146,4 +179,4 @@
 
 * new structure ([cdcdc16](https://github.com/Lfd4/changelog-generator/commit/cdcdc169f926fd8a2490ba2c8f0380453bda8fa1))
 
-::> 104 commits in 11 version tags, last considered commit: b4a2e6e038d43953c71dd48ab167845adcb27336
+::> 114 commits in 13 version tags, last considered commit: af476092541e6e02f8ad1f94f93028a215f7fc25
