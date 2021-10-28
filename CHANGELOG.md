@@ -1,5 +1,20 @@
 # changelog-generator Changelog
 
+## [0.3.2](https://github.com/Lfd4/changelog-generator/compare/0.3.1...0.3.2) (2021-10-28)
+
+### docs
+
+* **update:** changelog ([ea5ca08](https://github.com/Lfd4/changelog-generator/commit/ea5ca082b2319c1ad390aeb4dc0e8e9259125199))
+* fix typos ([75e2315](https://github.com/Lfd4/changelog-generator/commit/75e231535861bf12a922dac5f83abef6ed60d84c))
+
+### fix
+
+* **tags:** jump over tag, if not in the branch ([5ffcf3b](https://github.com/Lfd4/changelog-generator/commit/5ffcf3b5c5cce77d9c08fe2ec9648b7a44e2e5d7))
+
+### chore
+
+* bump package version ([a8bf390](https://github.com/Lfd4/changelog-generator/commit/a8bf390da527833db8f72961f0001dde13a63a84))
+
 ## [0.3.1](https://github.com/Lfd4/changelog-generator/compare/0.3.0...0.3.1) (2021-10-28)
 
 ### chore
@@ -179,4 +194,4 @@
 
 * new structure ([cdcdc16](https://github.com/Lfd4/changelog-generator/commit/cdcdc169f926fd8a2490ba2c8f0380453bda8fa1))
 
-::> 114 commits in 13 version tags, last considered commit: af476092541e6e02f8ad1f94f93028a215f7fc25
+::> 119 commits in 14 version tags, last considered commit: a8bf390da527833db8f72961f0001dde13a63a84
