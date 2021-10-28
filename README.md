@@ -8,17 +8,17 @@ Markdown is used for formating.
 
 **$ pychangelog generate** [\<path>] [--branch=\<string>] [--types=\<list>] [--bodytags=\<list>]
 
-* generates new CHANGELOG.md file at repo root
+* generates new CHANGELOG.md file at the repo root
 * overrides old CHANGELOG.md
 
 **$ pychangelog add** [\<path>] [--branch=\<string>] [--types=\<list>] [--bodytags=\<list>]
 
-* ceeps the content of the old CHANGELOG.md while adding new version logs
+* keeps the content of old CHANGELOG.md while appending new versions
 
 **$ pychangelog printout** [\<path>] [--branch=\<string>] [--types=\<list>] [--bodytags=\<list>]
 
-* prints the generated changelog in terminal instead of writing it in the CHANGELOG.md
-* does not touch the CHANGELOG.md
+* prints the generated changelog in the terminal instead of writing it in the CHANGELOG.md
+* does not touch CHANGELOG.md
 
 ## Options
 
