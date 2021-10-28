@@ -1,6 +1,7 @@
 import codecs
 import git
 import time
+import datetime
 
 import changelog.footer as footer
 import changelog.generate as generate
@@ -31,7 +32,11 @@ class Repo():
         print('name: ' + self.name)
 
     def get_commits(self, types):
-        commits = list(self.repo.iter_commits(self.branch))
+        try:
+            commits = list(self.repo.iter_commits(self.branch))
+        except git.exc.GitCommandError:
+            raise Exception(f'branch {self.branch} does not seem to exist')
+
         commits_list = []
         for commit in commits:
             commits_list.append(self.commit_dict(commit, types))
@@ -78,6 +83,7 @@ class Repo():
         if len(message) > 2:
             commit_dict['footer'] = message[2]
 
+        commit_dict['date'] = commit.committed_datetime
         commit_dict['binsha'] = codecs.encode(commit.binsha, 'hex').decode('utf-8')
         commit_dict['link'] = self.commit_url + commit_dict['binsha']
 
@@ -90,14 +96,14 @@ class Repo():
         for tag in tags:
             tag_dict = {}
             tag_dict['name'] = tag.name
-            commit = tag.object
 
+            commit = tag.object
             while commit.type != 'commit':
                 commit = commit.object
             
             tag_dict['commit'] = codecs.encode(commit.binsha, 'hex').decode('utf-8')
             date = time.gmtime(commit.committed_date)
-            tag_dict['date'] = date
+            tag_dict['date'] = commit.committed_datetime
             tag_dict['date_string'] = f'{date.tm_year}-{date.tm_mon}-{date.tm_mday}'
             tags_list.append(tag_dict)
 
@@ -174,12 +180,15 @@ class Repo():
         for tag in tags:
             for commit in commits:
                 releace.append(commit)
+
                 if commit['binsha'] == tag['commit']:
                     print(f"  tag: {tag['name']} --> commits: {len(releace)}")
-
                     releaces.append(releace)
                     versions.append(tag)
                     releace = []
+                    break
+
+                if commit['date'] > tag['date']:
                     break
 
         for commit in commits:
