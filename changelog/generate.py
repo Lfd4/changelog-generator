@@ -3,9 +3,8 @@ def changelog_entry(releace, version, bodytags):
     if version['compare_link']:
         name = f"[{ name }]({ version['compare_link'] })"
 
-    text = f"## { name } ({ version['date'] })\n\n"
+    text = f"## { name } ({ version['date_string'] })\n\n"
     text += changelog_entry_body(releace, bodytags)
-    text += '\n'
     return text
 
 def changelog_entry_body(releace, bodytags):
@@ -37,7 +36,7 @@ def changelog_entry_body(releace, bodytags):
 def changelog_block(title, items):
     text = ''
     if title:
-        text += f"### { title }\n"
+        text += f"### { title }\n\n"
     for item in items:
         if ':' in item[:18]:
             item = f"**{ item[:item.index(':') + 1] }**{ item[item.index(':') + 1:] }"

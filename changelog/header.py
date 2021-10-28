@@ -6,4 +6,4 @@ def remove_header(old_changelog):
     return '\n'.join(header) + '\n'
 
 def generate_header(name):
-    return f"# { name } Changelog\n\n\n"
+    return f"# { name } Changelog\n\n"

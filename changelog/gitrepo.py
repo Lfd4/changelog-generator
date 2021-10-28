@@ -97,13 +97,17 @@ class Repo():
             
             tag_dict['commit'] = codecs.encode(commit.binsha, 'hex').decode('utf-8')
             date = time.gmtime(commit.committed_date)
-            tag_dict['date'] = f'{date.tm_year}-{date.tm_mon}-{date.tm_mday}'
+            tag_dict['date'] = date
+            tag_dict['date_string'] = f'{date.tm_year}-{date.tm_mon}-{date.tm_mday}'
+            tags_list.append(tag_dict)
 
-            if len(tags_list):
-                tag_dict['compare_link'] = self.compare_url + tags_list[-1]['name'] + '...' + tag_dict['name']
+        tags_list.sort(key=lambda tag: tag['date'])
+
+        for index, tag_dict in enumerate(tags_list):
+            if index:
+                tag_dict['compare_link'] = self.compare_url + tags_list[index-1]['name'] + '...' + tag_dict['name']
             else:
                 tag_dict['compare_link'] = None
-            tags_list.append(tag_dict)
 
         return tags_list
 
