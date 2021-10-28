@@ -10,10 +10,12 @@ def pop_list(pop_list):
     for item in pop_list:
         yield item
 
+
 class Repo():
 
-    def __init__(self, repo_path):
+    def __init__(self, repo_path, branch):
         self.repo = git.Repo(repo_path)
+        self.branch = branch
 
         # root = self.repo.git.rev_parse("--show-toplevel")
 
@@ -31,7 +33,7 @@ class Repo():
 
     def get_commits(self, types):
 
-        commits = list(self.repo.iter_commits("master"))
+        commits = list(self.repo.iter_commits(self.branch))
 
         commits_list = []
         for commit in commits:

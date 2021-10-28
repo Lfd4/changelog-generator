@@ -5,9 +5,11 @@ import git
 from changelog.gitrepo import Repo
 
 filename = 'CHANGELOG.md'
+branch = 'main'
 types = 'feat,fix,chore,docs,refactor,test'
 bodytags = 'BREAKING CHANGE,MAJOR'
 
+branch_desctiption = 'git branch'
 types_desctiption = 'commit types to show in changelog'
 bodytags_description = 'body tags that schould be shown in changelog'
 
@@ -17,10 +19,11 @@ def generator():
 
 @generator.command()
 @click.argument('repopath', default='.')
+@click.option("--branch", default=branch, help=branch_desctiption)
 @click.option("--types", default=types, help=types_desctiption)
 @click.option("--bodytags", default=bodytags, help=bodytags_description)
-def generate(repopath, types, bodytags):
-    repo = Repo(repopath)
+def generate(repopath, branch, types, bodytags):
+    repo = Repo(repopath, branch)
     types = types.split(',')
     bodytags = bodytags.split(',')
     text = repo.generate_changelog(types, bodytags)
@@ -31,10 +34,11 @@ def generate(repopath, types, bodytags):
 
 @generator.command()
 @click.argument('repopath', default='.')
+@click.option("--branch", default=branch, help=branch_desctiption)
 @click.option("--types", default=types, help=types_desctiption)
 @click.option("--bodytags", default=bodytags, help=bodytags_description)
-def add(repopath, types, bodytags):
-    repo = Repo(repopath)
+def add(repopath, branch, types, bodytags):
+    repo = Repo(repopath, branch)
     types = types.split(',')
     bodytags = bodytags.split(',')
     try:
@@ -51,14 +55,14 @@ def add(repopath, types, bodytags):
 
 @generator.command()
 @click.argument('repopath', default='.')
+@click.option("--branch", default=branch, help=branch_desctiption)
 @click.option("--types", default=types, help=types_desctiption)
 @click.option("--bodytags", default=bodytags, help=bodytags_description)
-def printout(repopath, types, bodytags):
-    repo = Repo(repopath)
+def printout(repopath, branch, types, bodytags):
+    repo = Repo(repopath, branch)
     types = types.split(',')
     bodytags = bodytags.split(',')
     print(repo.generate_changelog(types, bodytags))
 
 if __name__ == '__main__':
     generator()
-    

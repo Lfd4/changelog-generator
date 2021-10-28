@@ -6,14 +6,14 @@ Markdown is used for formating.
 
 ## Commands
 
-**$ pychangelog generate [\<path>] [--types=\<list>] [--bodytags=\<list>]**
+**$ pychangelog generate [\<path>] [--branch=\<string>] [--types=\<list>] [--bodytags=\<list>]**
 * generates new CHANGELOG.md file at repo root
 * overrides old CHANGELOG.md
 
-**$ pychangelog add [\<path>] [--types=\<list>] [--bodytags=\<list>]**
+**$ pychangelog add [\<path>] [--branch=\<string>] [--types=\<list>] [--bodytags=\<list>]**
 * ceeps the content of the old CHANGELOG.md while adding new version logs
 
-**$ pychangelog printout [\<path>] [--types=\<list>] [--bodytags=\<list>]**
+**$ pychangelog printout [\<path>] [--branch=\<string>] [--types=\<list>] [--bodytags=\<list>]**
 * prints the generated changelog in terminal instead of writing it in the CHANGELOG.md
 * does not touch the CHANGELOG.md
 
@@ -22,6 +22,7 @@ Markdown is used for formating.
 Option | Format | Description | Default
 --- | --- | --- | ---
 path | TEXT | path to root of the git repository | .
+--branch | TEXT | git branch | main
 --types | TEXT comma seperated list | commit types to show in changelog | feat,fix,chore,docs,refactor,test
 --bodytags | TEXT comma seperated list | body tags that schould be shown in changelog | BREAKING CHANGE,MAJOR
 
