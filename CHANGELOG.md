@@ -1,5 +1,19 @@
 # changelog-generator Changelog
 
+## [0.3.3](https://github.com/Lfd4/changelog-generator/compare/0.3.2...0.3.3) (2022-2-21)
+
+### docs
+
+* **update:** changelog ([02764ea](https://github.com/Lfd4/changelog-generator/commit/02764ea4d4871a6c3e887f09920742c6ee512274))
+
+### fix
+
+* **packages:** remove restriction of requests package version ([7f0311f](https://github.com/Lfd4/changelog-generator/commit/7f0311f187053dceb9a0a0108ce3ebdcd664d2a4))
+
+### chore
+
+* bump package version ([f289710](https://github.com/Lfd4/changelog-generator/commit/f28971069646dab29aa2bccf9177ba47c2331da2))
+
 ## [0.3.2](https://github.com/Lfd4/changelog-generator/compare/0.3.1...0.3.2) (2021-10-28)
 
 ### docs
@@ -194,4 +208,4 @@
 
 * new structure ([cdcdc16](https://github.com/Lfd4/changelog-generator/commit/cdcdc169f926fd8a2490ba2c8f0380453bda8fa1))
 
-::> 119 commits in 14 version tags, last considered commit: a8bf390da527833db8f72961f0001dde13a63a84
+::> 122 commits in 15 version tags, last considered commit: f28971069646dab29aa2bccf9177ba47c2331da2
