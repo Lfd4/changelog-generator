@@ -16,7 +16,7 @@ setup(
    install_requires=[
      "Click<7.1",
      "GitPython<3.2",
-     "requests<2.23",
+     "requests",
    ],
    entry_points={"console_scripts": ["pychangelog = changelog.changelog_generator:generator"]}
 )
